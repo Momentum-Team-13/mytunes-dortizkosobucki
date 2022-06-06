@@ -1,14 +1,15 @@
-.track {
+#box {
     border: solid 2px black;
     background-color: red;
+    max-width: 300px;
+
 }
 
-div {
-    border: dashed 2px blue;
-    background-color: yellow;
-}
-
-#searchResults {
+.song-info {
     border: 2px solid green;
     background-color: blueviolet;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
 }

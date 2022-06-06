@@ -3,7 +3,8 @@ console.log('js is connected')
 //stuff inside the search bar
 const searchBox = document.querySelector('#searchBox')
 const search = document.querySelector('#search')
-const resultsElement = document.querySelector("#searchResults")
+const searchResults = document.querySelector('#searchResults')
+// const resultsElement = document.querySelector("#searchResults")
 // console.log(search)
 //search button push does-->
 search.addEventListener("click", (event) => {
@@ -26,12 +27,19 @@ search.addEventListener("click", (event) => {
 
 function buildSongs(resultsArray) {
     for (let track of resultsArray) {
+        let songDiv = document.createElement("div")
+        songDiv.classList.add("song-info")
         let nameElement = document.createElement("p")
         nameElement.innerText = track.trackName
-        searchResults.appendChild(nameElement)
+        songDiv.appendChild(nameElement)
         let artistElement = document.createElement("p")
         artistElement.innerText = track.artistName
-        searchResults.appendChild(artistElement)
+        songDiv.appendChild(artistElement)
+        let pictureElement = document.createElement("img")
+        pictureElement.src = track.artworkUrl100
+        songDiv.appendChild(pictureElement)
+        //appendchild 
+        searchResults.appendChild(songDiv)
     }
 }
 
