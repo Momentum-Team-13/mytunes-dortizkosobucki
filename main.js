@@ -3,7 +3,8 @@ console.log('js is connected')
 //stuff inside the search bar
 const searchBox = document.querySelector('#searchBox')
 const search = document.querySelector('#search')
-console.log(search)
+const resultsElement = document.querySelector("#searchResults")
+// console.log(search)
 //search button push does-->
 search.addEventListener("click", (event) => {
     console.log(searchBox.value)
@@ -18,27 +19,24 @@ search.addEventListener("click", (event) => {
             return response.json()
         })
         .then(function (data) {
-            console.log("response from itunes api:", data)
-            buildPage(data)
+            console.log("response from itunes api:", data.results[0])
+            buildSongs(data.results)
         })
 })
 
-const resultsElement = document.getElementById("searchResults")
-// const search = document.querySelector("#results")
-function buildPage(resultsArray) {
-    for (let results of resultsArray) {
-        buildSongs(results)
+function buildSongs(resultsArray) {
+    for (let track of resultsArray) {
+        let nameElement = document.createElement("p")
+        nameElement.innerText = track.trackName
+        searchResults.appendChild(nameElement)
+        let artistElement = document.createElement("p")
+        artistElement.innerText = track.artistName
+        searchResults.appendChild(artistElement)
     }
-}
-function buildSongs(results) {
-    let nameElement = document.createElement("p")
-    nameElement.innerText = `${data.trackName}`
-    resultsElement.appendChild(nameElement)
 }
 
 //
-//     let pageElement = document.createElement("div")
-//     pageElement.classList.add("#track")
+
 //     //track name
 //     let nameElement = document.createElement("h2")
 //     nameElement.innerText = `${resultsData.trackName}`

@@ -7,3 +7,8 @@ div {
     border: dashed 2px blue;
     background-color: yellow;
 }
+
+#searchResults {
+    border: 2px solid green;
+    background-color: blueviolet;
+}
