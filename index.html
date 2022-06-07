@@ -12,12 +12,14 @@
 
 <body>
   <h1>Music Search</h1>
-  <input type="text" id="searchBox">
-  <button id="search">Search</button>
-  <audio controls>Now Playing</audio>
-  <div id="box">
-    <div id="searchResults">
+  <form>
+    <input type="text" id="searchBox" placeholder="Type to Search" minlength="1" required="required">
+    <button id="search">Search</button>
+  </form>
 
+  <div id="box">
+    <audio controls style="margin: 0 auto; display: block;">"Now Playing"</audio>
+    <div id="searchResults">
     </div>
   </div>
 </body>

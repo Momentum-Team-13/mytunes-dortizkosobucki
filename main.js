@@ -5,16 +5,14 @@ const searchBox = document.querySelector('#searchBox')
 const search = document.querySelector('#search')
 const searchResults = document.querySelector('#searchResults')
 const resultsBox = document.querySelector("#box")
-// const resultsElement = document.querySelector("#searchResults")
-// console.log(search)
-//search button push does-->
 
 search.addEventListener("click", (event) => {
+    event.preventDefault()
     searchResults.innerHTML = ""
     console.log(searchBox.value)
     console.log(event)
     const userInput = searchBox.value
-    let itunesURL = `https://itunes.apple.com/search?term=${userInput}`
+    let itunesURL = `https://itunes.apple.com/search?term=${userInput}&entity=song`
 
     fetch(itunesURL, {
         method: 'GET',
@@ -25,9 +23,6 @@ search.addEventListener("click", (event) => {
         })
         .then(function (data) {
             console.log("response from itunes api:", data.results[0])
-
-
-            ///
             for (let track of data.results) {
                 //song box 
                 let songDiv = document.createElement("div")
@@ -66,6 +61,9 @@ search.addEventListener("click", (event) => {
                 //append all
                 searchResults.appendChild(songDiv)
             }
+        })
+        .catch(err => {
+            console.error(err);
         })
 })
 
