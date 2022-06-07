@@ -27,18 +27,35 @@ search.addEventListener("click", (event) => {
 
 function buildSongs(resultsArray) {
     for (let track of resultsArray) {
+        //song box 
         let songDiv = document.createElement("div")
         songDiv.classList.add("song-info")
+        //song name 
         let nameElement = document.createElement("p")
-        nameElement.innerText = track.trackName
+        nameElement.innerText = "Track Name:" + track.trackName
         songDiv.appendChild(nameElement)
+        //artist
         let artistElement = document.createElement("p")
-        artistElement.innerText = track.artistName
+        artistElement.innerText = "Artist:" + track.artistName
         songDiv.appendChild(artistElement)
+        //picture
         let pictureElement = document.createElement("img")
         pictureElement.src = track.artworkUrl100
         songDiv.appendChild(pictureElement)
-        //appendchild 
+        //album
+        let albumElement = document.createElement("p")
+        albumElement.innerText = "Album:" + track.collectionName
+        songDiv.appendChild(albumElement)
+        // release date 
+        let releaseElement = document.createElement("p")
+        let releaseDate = moment(track.releaseDate).format("MMM Do YYYY");
+        releaseElement.innerText = `Release Date: ${releaseDate}`
+        songDiv.appendChild(releaseElement)
+        let musicElement = document.createElement("audio")
+        musicElement.innerText =
+            musicElement.src = track.previewURL
+        songDiv.appendChild(musicElement)
+        //append all
         searchResults.appendChild(songDiv)
     }
 }
