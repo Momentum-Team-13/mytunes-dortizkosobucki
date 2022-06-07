@@ -1,15 +1,19 @@
-#box {
+div {
     border: solid 2px black;
     background-color: red;
-    max-width: 500px;
-
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 .song-info {
     border: 2px solid green;
     background-color: blueviolet;
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row;
-    flex-wrap: wrap;
+    max-width: 250px;
+    max-height: 275px;
+}
+
+img {
+    max-width: 100px;
+    max-height: 100px;
 }

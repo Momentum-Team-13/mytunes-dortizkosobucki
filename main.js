@@ -12,6 +12,7 @@ search.addEventListener("click", (event) => {
     console.log(event)
     const userInput = searchBox.value
     let itunesURL = `https://itunes.apple.com/search?term=${userInput}`
+
     fetch(itunesURL, {
         method: 'GET',
         headers: { 'Content-Type': 'applications/json' }
@@ -21,44 +22,47 @@ search.addEventListener("click", (event) => {
         })
         .then(function (data) {
             console.log("response from itunes api:", data.results[0])
-            buildSongs(data.results)
+            searchBox.innerHTML = ""
+            for (let track of data.results) {
+                //song box 
+                let songDiv = document.createElement("div")
+                songDiv.classList.add("song-info")
+                //song name 
+                let nameElement = document.createElement("p")
+                nameElement.innerText = "Track Name:" + track.trackName
+                songDiv.appendChild(nameElement)
+                //artist
+                let artistElement = document.createElement("p")
+                artistElement.innerText = "Artist:" + track.artistName
+                songDiv.appendChild(artistElement)
+
+                //album
+                let albumElement = document.createElement("p")
+                albumElement.innerText = "Album:" + track.collectionName
+                songDiv.appendChild(albumElement)
+                // release date 
+                let releaseElement = document.createElement("p")
+                let releaseDate = moment(track.releaseDate).format("MMM Do YYYY");
+                releaseElement.innerText = `Release Date: ${releaseDate}`
+                songDiv.appendChild(releaseElement)
+                //picture
+                let pictureElement = document.createElement("img")
+                pictureElement.src = track.artworkUrl100
+                songDiv.appendChild(pictureElement)
+                //audio 
+                pictureElement.addEventListener("click", (event) => {
+                    console.log("Play!")
+                    let sound = document.querySelector('audio');
+                    sound.id = 'audio=player';
+                    sound.controls = 'controls';
+                    sound.src = `${track.previewUrl}`;
+                    sound.type = 'audio/mpeg';
+                })
+                //append all
+                searchResults.appendChild(songDiv)
+            }
         })
 })
-
-function buildSongs(resultsArray) {
-    for (let track of resultsArray) {
-        //song box 
-        let songDiv = document.createElement("div")
-        songDiv.classList.add("song-info")
-        //song name 
-        let nameElement = document.createElement("p")
-        nameElement.innerText = "Track Name:" + track.trackName
-        songDiv.appendChild(nameElement)
-        //artist
-        let artistElement = document.createElement("p")
-        artistElement.innerText = "Artist:" + track.artistName
-        songDiv.appendChild(artistElement)
-        //picture
-        let pictureElement = document.createElement("img")
-        pictureElement.src = track.artworkUrl100
-        songDiv.appendChild(pictureElement)
-        //album
-        let albumElement = document.createElement("p")
-        albumElement.innerText = "Album:" + track.collectionName
-        songDiv.appendChild(albumElement)
-        // release date 
-        let releaseElement = document.createElement("p")
-        let releaseDate = moment(track.releaseDate).format("MMM Do YYYY");
-        releaseElement.innerText = `Release Date: ${releaseDate}`
-        songDiv.appendChild(releaseElement)
-        let musicElement = document.createElement("audio")
-        musicElement.innerText =
-            musicElement.src = track.previewURL
-        songDiv.appendChild(musicElement)
-        //append all
-        searchResults.appendChild(songDiv)
-    }
-}
 
 //
 
