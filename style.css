@@ -1,3 +1,9 @@
+body {
+    background-image: url(/namroud-gorguis-FZWivbri0Xk-unsplash.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
 h1 {
     text-align: center;
 }
@@ -7,23 +13,35 @@ form {
     padding-bottom: 10px;
 }
 
+audio {
+    padding: 20px;
+}
+
+h3 {
+    text-align: center;
+}
+
 div {
-    border: solid 2px black;
-    background-color: red;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+    max-width: fit-content;
 }
 
 .song-info {
-    border: 2px solid green;
-    background-color: blueviolet;
-    max-width: 250px;
-    max-height: 275px;
+    border: 2px solid white;
+    max-width: 24%;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-image: url(/adrian-korte-5gn2soeAc40-unsplash.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 img {
     max-width: 100px;
     max-height: 100px;
+    padding: 5px;
 }

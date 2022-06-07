@@ -24,27 +24,10 @@ search.addEventListener("click", (event) => {
         .then(function (data) {
             console.log("response from itunes api:", data.results[0])
             for (let track of data.results) {
+
                 //song box 
                 let songDiv = document.createElement("div")
                 songDiv.classList.add("song-info")
-                //song name 
-                let nameElement = document.createElement("p")
-                nameElement.innerText = "Track Name:" + track.trackName
-                songDiv.appendChild(nameElement)
-                //artist
-                let artistElement = document.createElement("p")
-                artistElement.innerText = "Artist:" + track.artistName
-                songDiv.appendChild(artistElement)
-
-                //album
-                let albumElement = document.createElement("p")
-                albumElement.innerText = "Album:" + track.collectionName
-                songDiv.appendChild(albumElement)
-                // release date 
-                let releaseElement = document.createElement("p")
-                let releaseDate = moment(track.releaseDate).format("MMM Do YYYY");
-                releaseElement.innerText = `Release Date: ${releaseDate}`
-                songDiv.appendChild(releaseElement)
                 //picture
                 let pictureElement = document.createElement("img")
                 pictureElement.src = track.artworkUrl100
@@ -58,6 +41,25 @@ search.addEventListener("click", (event) => {
                     sound.src = `${track.previewUrl}`;
                     sound.type = 'audio/mpeg';
                 })
+                //song name 
+                let nameElement = document.createElement("p")
+                nameElement.innerText = "Track Name: " + track.trackName
+                songDiv.appendChild(nameElement)
+                //artist
+                let artistElement = document.createElement("p")
+                artistElement.innerText = "Artist: " + track.artistName
+                songDiv.appendChild(artistElement)
+
+                //album
+                let albumElement = document.createElement("p")
+                albumElement.innerText = "Album: " + track.collectionName
+                songDiv.appendChild(albumElement)
+                // release date 
+                let releaseElement = document.createElement("p")
+                let releaseDate = moment(track.releaseDate).format("MMM Do YYYY");
+                releaseElement.innerText = `Release Date: ${releaseDate}`
+                songDiv.appendChild(releaseElement)
+
                 //append all
                 searchResults.appendChild(songDiv)
             }
