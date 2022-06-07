@@ -4,10 +4,13 @@ console.log('js is connected')
 const searchBox = document.querySelector('#searchBox')
 const search = document.querySelector('#search')
 const searchResults = document.querySelector('#searchResults')
+const resultsBox = document.querySelector("#box")
 // const resultsElement = document.querySelector("#searchResults")
 // console.log(search)
 //search button push does-->
+
 search.addEventListener("click", (event) => {
+    searchResults.innerHTML = ""
     console.log(searchBox.value)
     console.log(event)
     const userInput = searchBox.value
@@ -22,7 +25,9 @@ search.addEventListener("click", (event) => {
         })
         .then(function (data) {
             console.log("response from itunes api:", data.results[0])
-            searchBox.innerHTML = ""
+
+
+            ///
             for (let track of data.results) {
                 //song box 
                 let songDiv = document.createElement("div")
