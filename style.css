@@ -1,6 +1,11 @@
+html {
+    height: 100%;
+    width: 100%;
+}
+
 body {
     background-image: url(/namroud-gorguis-FZWivbri0Xk-unsplash.jpg);
-    background-size: cover;
+    background-size: 100% 100%;
     background-repeat: no-repeat;
 }
 

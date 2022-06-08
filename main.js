@@ -25,7 +25,6 @@ search.addEventListener("click", (event) => {
         })
         .then(function (data) {
             console.log("response from itunes api:", data.results)
-
             if (data.results.length < 1) {
                 let noResultsElement = document.createElement('div')
                 noResultsElement.innerText = "Sorry, no results were found."
@@ -65,7 +64,6 @@ search.addEventListener("click", (event) => {
                 let artistElement = document.createElement("p")
                 artistElement.innerText = "Artist: " + track.artistName
                 songDiv.appendChild(artistElement)
-
                 //album
                 let albumElement = document.createElement("p")
                 albumElement.innerText = "Album: " + track.collectionName
@@ -77,7 +75,6 @@ search.addEventListener("click", (event) => {
                 songDiv.appendChild(releaseElement)
                 //append all
                 searchResults.appendChild(songDiv)
-
             }
         })
         .catch(err => {
