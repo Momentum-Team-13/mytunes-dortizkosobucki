@@ -34,6 +34,7 @@ search.addEventListener("click", (event) => {
             }
             if (data.results.length > 0) {
                 let playElement = document.createElement('h4')
+                nowPlaying.innerText = ""
                 playElement.innerText = "Click Album Cover to Play"
                 playElement.classList.add = ("#nowPlaying")
                 nowPlaying.appendChild(playElement)
