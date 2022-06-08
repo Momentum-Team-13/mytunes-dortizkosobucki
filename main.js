@@ -31,10 +31,11 @@ search.addEventListener("click", (event) => {
                 searchResults.appendChild(noResultsElement)
             }
             if (data.results.length > 0) {
-                let playElement = document.createElement('h3')
+                let playElement = document.createElement('h4')
                 playElement.innerText = "Click Album Cover to Play"
-                playElement.classList.add = ("play")
-                searchResults.appendChild(playElement)
+                playElement.classList.add = ("#nowPlaying")
+                nowPlaying.innerHTML = ""
+                nowPlaying.appendChild(playElement)
             }
 
             for (let track of data.results) {

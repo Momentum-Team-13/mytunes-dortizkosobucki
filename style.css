@@ -34,10 +34,9 @@ div {
     width: auto;
     height: auto;
     justify-content: center;
-}
-
-#play {
-    border: 2px red solid;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 #nowPlaying {
