@@ -47,6 +47,7 @@ search.addEventListener("click", (event) => {
                     sound.controls = 'controls';
                     sound.src = `${track.previewUrl}`;
                     sound.type = 'audio/mpeg';
+                    nowPlaying.innerText = `${track.artistName} ${track.trackName}`
                 })
                 //song name 
                 let nameElement = document.createElement("p")
