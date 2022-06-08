@@ -34,7 +34,6 @@ search.addEventListener("click", (event) => {
                 let playElement = document.createElement('h4')
                 playElement.innerText = "Click Album Cover to Play"
                 playElement.classList.add = ("#nowPlaying")
-                nowPlaying.innerHTML = ""
                 nowPlaying.appendChild(playElement)
             }
 
@@ -54,7 +53,7 @@ search.addEventListener("click", (event) => {
                     sound.controls = 'controls';
                     sound.src = `${track.previewUrl}`;
                     sound.type = 'audio/mpeg';
-                    nowPlaying.innerText = `Now Playing: ${track.trackName} by ${track.artistName} `
+                    nowPlaying.innerText = `Click Album Cover to Play \n Now Playing: ${track.trackName} by ${track.artistName} `;
                 })
                 //song name 
                 let nameElement = document.createElement("p")

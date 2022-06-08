@@ -30,7 +30,6 @@ div {
 }
 
 #searchResults {
-    border: 2px black solid;
     width: auto;
     height: auto;
     justify-content: center;
@@ -40,7 +39,7 @@ div {
 }
 
 #nowPlaying {
-    border: 2px white dashed;
+    text-align: center;
 }
 
 .song-info {
