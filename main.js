@@ -23,8 +23,15 @@ search.addEventListener("click", (event) => {
         })
         .then(function (data) {
             console.log("response from itunes api:", data.results[0])
-            for (let track of data.results) {
 
+            if (data.results < 1) {
+                let noResultsElement = document.createElement('div')
+                noResultsElement.innerText = "Sorry, no results were found."
+                noResultsElement.classList.add = ("no-results")
+                searchResults.appendChild(noResultsElement)
+            }
+
+            for (let track of data.results) {
                 //song box 
                 let songDiv = document.createElement("div")
                 songDiv.classList.add("song-info")
@@ -59,22 +66,12 @@ search.addEventListener("click", (event) => {
                 let releaseDate = moment(track.releaseDate).format("MMM Do YYYY");
                 releaseElement.innerText = `Release Date: ${releaseDate}`
                 songDiv.appendChild(releaseElement)
-
                 //append all
                 searchResults.appendChild(songDiv)
+
             }
         })
         .catch(err => {
-            console.error(err);
+            window.alert("Error Encountered");
         })
 })
-
-//
-
-//     //track name
-//     let nameElement = document.createElement("h2")
-//     nameElement.innerText = `${resultsData.trackName}`
-//     pageElement.appendChild(nameElement)
-//     //pagelementappend 
-//     resultsPage.appendChild(pageElement)
-// }

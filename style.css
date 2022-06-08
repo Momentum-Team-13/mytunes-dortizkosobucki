@@ -29,15 +29,20 @@ div {
     max-width: fit-content;
 }
 
+.no-results {
+    border: 2px black solid;
+}
+
 .song-info {
-    border: 2px solid white;
+    border: 2px solid black;
     max-width: 24%;
     align-items: center;
     justify-content: center;
     text-align: center;
-    background-image: url(/adrian-korte-5gn2soeAc40-unsplash.jpg);
+    background-color: aliceblue;
+    /* background-image: url(/adrian-korte-5gn2soeAc40-unsplash.jpg);
     background-size: cover;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat; */
 }
 
 img {
