@@ -36,6 +36,10 @@ div {
     justify-content: center;
 }
 
+#play {
+    border: 2px red solid;
+}
+
 #nowPlaying {
     border: 2px white dashed;
 }

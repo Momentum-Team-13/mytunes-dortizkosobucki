@@ -22,13 +22,19 @@ search.addEventListener("click", (event) => {
             return response.json()
         })
         .then(function (data) {
-            console.log("response from itunes api:", data.results[0])
+            console.log("response from itunes api:", data.results)
 
-            if (data.results < 1) {
+            if (data.results.length < 1) {
                 let noResultsElement = document.createElement('div')
                 noResultsElement.innerText = "Sorry, no results were found."
                 noResultsElement.classList.add = ("no-results")
                 searchResults.appendChild(noResultsElement)
+            }
+            if (data.results.length > 0) {
+                let playElement = document.createElement('h3')
+                playElement.innerText = "Click Album Cover to Play"
+                playElement.classList.add = ("play")
+                searchResults.appendChild(playElement)
             }
 
             for (let track of data.results) {
@@ -47,7 +53,7 @@ search.addEventListener("click", (event) => {
                     sound.controls = 'controls';
                     sound.src = `${track.previewUrl}`;
                     sound.type = 'audio/mpeg';
-                    nowPlaying.innerText = `${track.artistName} ${track.trackName}`
+                    nowPlaying.innerText = `Now Playing: ${track.trackName} by ${track.artistName} `
                 })
                 //song name 
                 let nameElement = document.createElement("p")
