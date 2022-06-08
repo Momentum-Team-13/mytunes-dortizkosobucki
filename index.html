@@ -5,6 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="main.js" defer></script>
+  <!-- If the defer attribute is set, it specifies that the script is downloaded in parallel to parsing the page, 
+    and executed after the page has finished parsing.  -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.3/moment.min.js"></script>
   <link rel="stylesheet" href="style.css">
   <title>Music Search</title>
@@ -17,7 +19,7 @@
     <button id="search">Search</button>
   </form>
 
-  <audio controls muted style="margin: 0 auto; display: block;">"Now Playing"</audio>
+  <audio controls autoplay muted style="margin: 0 auto; display: block;">"Now Playing"</audio>
 
   <h4 id="nowPlaying"></h4>
   <div id="searchResults"></div>

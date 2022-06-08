@@ -8,6 +8,8 @@ const resultsBox = document.querySelector("#box")
 
 search.addEventListener("click", (event) => {
     event.preventDefault()
+    //The preventDefault() method of the Event interface tells the user 
+    //agent that if the event does not get explicitly handled, its default action should not be taken as it normally would be.
     searchResults.innerHTML = ""
     console.log(searchBox.value)
     console.log(event)
@@ -36,7 +38,6 @@ search.addEventListener("click", (event) => {
                 playElement.classList.add = ("#nowPlaying")
                 nowPlaying.appendChild(playElement)
             }
-
             for (let track of data.results) {
                 //song box 
                 let songDiv = document.createElement("div")
